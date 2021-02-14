@@ -1,0 +1,27 @@
+{
+  "name": "breakery",
+  "version": "1.0.0",
+  "description": "Take a break, work a minute on your mobility.",
+  "main": "dist/cli.js",
+  "scripts": {
+    "start": "tsc && node dist/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mambax/breakery.git"
+  },
+  "author": "Dominik Meyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mambax/breakery/issues"
+  },
+  "homepage": "https://github.com/mambax/breakery#readme",
+  "dependencies": {
+    "cli-progress": "^3.9.0",
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.5"
+  }
+}
