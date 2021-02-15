@@ -13,7 +13,7 @@ import { keypress, terminateOnKeypress } from './keypress'
   })
 
   const state = 0
-  const BAR_LENGTH = 1000
+  const BAR_LENGTH = 100
 
   console.clear()
 
@@ -37,6 +37,16 @@ import { keypress, terminateOnKeypress } from './keypress'
   await keypress()
   terminateOnKeypress('Got it, you are in a hurry 😢. Maybe next time then 👋🏽')
 
+
+  // 1 warten auf 0
+  // in 4 sekunnden auf 100 gehen
+  // 1 sekunde warten
+  // in 4 sekunden auf 0 gehen
+  // restart, 4x
+
+
+  const timeouts: NodeJS.Timeout[] = []
+
   await new Promise(resolve => {
     b1.start(BAR_LENGTH, state)
     resolve(1)
@@ -51,6 +61,7 @@ import { keypress, terminateOnKeypress } from './keypress'
     .then(inhale(4, true))
     .then(() => {
       b1.stop()
+      clearTimeout()
       console.log('🎊 Wonderful, you completed the mobility break, up up to where you left off.')
       wtfnode.dump()
     })
@@ -107,6 +118,8 @@ import { keypress, terminateOnKeypress } from './keypress'
   }
 
   function sleeper (ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+    return new Promise(resolve => {
+      timeouts.push(setTimeout(resolve, ms))
+    })
   }
 })()

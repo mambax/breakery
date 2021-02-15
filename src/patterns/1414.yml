@@ -1,0 +1,13 @@
+pattern:
+  num_loops: 4
+  steps: 
+    - type: wait
+      ms: 1000
+    - type: inhale
+      ms: 4000
+    - type: wait
+      ms: 1000
+    - type: exhale
+      ms: 4000
+    - type: wait
+      ms: 1000
